@@ -1,0 +1,155 @@
+{
+	"info": {
+		"_postman_id": "1d6863a0-79d8-43e7-bf87-2f0ca14e1ef2",
+		"name": "Authorization",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Generate Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"tenant\": \"B2B\",\r\n   \"resource\":\"crop\",\r\n   \"identifier\":\"jlefhlqerhj8u374jkdef\",\r\n   \"apitimestamp\":\"2023-02-11T05:53:10.815Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/generatetoken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"generatetoken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health Checkup",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5005/live",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"live"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\" : \"cd70a401-a689-498c-86bf-c677ee6a8225\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/validatetoken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"validatetoken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Crops List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "5ff5c7ef-3a20-4be3-85b3-759eda20972f",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/getallcrops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"getallcrops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Crop",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"5\",\r\n    \"name\": \"Mango\",\r\n    \"region\": \"Bengal\",\r\n    \"field\": \"plain\",\r\n    \"season\": \"summer\",\r\n    \"properties\": {\r\n        \"crop_cycle\": \"2\",\r\n        \"crop_field\": \"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/addcrop",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"addcrop"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
