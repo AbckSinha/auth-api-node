@@ -1,0 +1,74 @@
+{
+  "name": "api_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon",
+    "install-service": "node windows-service.js --install",
+    "uninstall-service": "node windows-service.js --uninstall",
+    "test": "mocha  test/test.js",
+    "coverage": "nyc mocha",
+    "validate": "swagger-tools validate swagger/swagger.json"
+  },
+  "dependencies": {
+    "axios": "^0.23.0",
+    "fastify": "^3.29.4",
+    "fastify-static": "^4.4.2",
+    "minimist": "^1.2.7",
+    "moment": "^2.29.4",
+    "node-windows": "^1.0.0-beta.8",
+    "oidc-provider": "^8.0.0",
+    "util": "^0.12.4",
+    "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.20",
+    "nyc": "^15.1.0",
+    "swagger-tools": "^0.10.4",
+    "winston": "^3.6.0",
+    "winston-daily-rotate-file": "^4.6.1"
+  },
+  "nyc": {
+    "exclude": [
+      "app.js",
+      "logger.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "cache": true,
+    "all": true
+  },
+  "peerDependencies": {
+    "@vercel/ncc": "0.33.3",
+    "pkg": "5.5.2"
+  },
+  "pkg": {
+    "scripts": "index.js",
+    "assets": [
+      "schema/**/*",
+      "conf/**/*"
+    ],
+    "targets": [
+      "node16-win-x64"
+    ],
+    "outputPath": "bin"
+  },
+  "bin": {
+    "docpodapi": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Abhishek Sinha",
+  "contributors": [
+    "Abhishek Sinha"
+  ],
+  "license": "MIT"
+}

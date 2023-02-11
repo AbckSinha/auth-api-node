@@ -1,0 +1,17 @@
+{
+	"host": "0.0.0.0",
+	"port": "5005",
+	"ssl": false,
+	"clientid":"136a4bac66bc22c5e425",
+	"clientSecret":"191ae3583910cf7e5cb07ef889f04043eb59266e",
+	"dbConnector": {
+		"user": "user",
+		"host": "server_address",
+		"database": "document",
+		"password": "pwd",
+		"port": 5432,
+		"max": 800,
+		"idleTimeoutMillis": 30000,
+		"connectionTimeoutMillis": 5000
+	}
+}
